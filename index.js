@@ -6,7 +6,7 @@ try {
     const context = _context;
 
     // get github token
-    const token = getInput('github-token');
+    const token = getInput('github-token', { required: true });
     if (!token) {
         throw new Error('GitHub token is required');
     }

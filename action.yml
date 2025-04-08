@@ -1,6 +1,10 @@
 name: "Check Integration Tests Allowance Status"
 description: "Check the status of the integration tests allowance"
 inputs:
+  github-token:
+    description: The GitHub token used to create an authenticated client
+    default: ${{ github.token }}
+    required: false
   review_approvals_count:
     description: "The number of approvals required for the PR to be tested"
     required: true
