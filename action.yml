@@ -1,0 +1,19 @@
+name: "Check Integration Tests Allowance Status"
+description: "Check the status of the integration tests allowance"
+inputs:
+  review_approvals_count:
+    description: "The number of approvals required for the PR to be tested"
+    required: true
+    default: 1
+  approval_labels:
+    description: "Comma-separated list of labels that allow integration tests to run"
+    required: true
+    default: "integration-test, skip_integration"
+outputs:
+  status:
+    description: "The status of the integration tests allowance"
+    required: true
+    default: false
+runs:
+  using: "node20"
+  main: "dist/index.js"
