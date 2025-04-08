@@ -45,7 +45,7 @@ try {
 
     // Check if the PR has the required labels
     const requiredLabels = getInput('approval_labels').split(',').map(label => label.trim()) || ["integration-test", "skip_integration"];
-    const hasRequiredLabels = requiredLabels.every(label => labels.includes(label));
+    const hasRequiredLabels = requiredLabels.some(label => labels.includes(label));
     console.log(`Required labels: ${requiredLabels}`);
     console.log(`Has required labels: ${hasRequiredLabels}`);
 
