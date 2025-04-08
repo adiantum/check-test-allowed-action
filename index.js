@@ -17,10 +17,6 @@ try {
     // `core.getInput` gets the input from the workflow file
     const input = getInput('input');
     
-    // Log the context and input for debugging
-    console.log('Context:', context);
-    console.log('Input:', input);
-    
     // Get the current PR number from the context
     const prNumber = context.payload.pull_request ? context.payload.pull_request.number : null;
     if (!prNumber) {
@@ -28,7 +24,7 @@ try {
     }
 
     // Get PR reviews and store it in `reviews` variable
-    const { data: reviews } = await octokit.pulls.listReviews({
+    const { data: reviews } = await octokit.rest.pulls.listReviews({
         owner: context.repo.owner,
         repo: context.repo.repo,
         pull_number: prNumber,
